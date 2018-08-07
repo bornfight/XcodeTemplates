@@ -1,15 +1,16 @@
-protocol ___VARIABLE_sceneName___ViewModelInput {
-}
+//
+//  ___FILENAME___
+//  ___PROJECTNAME___
+//
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  ___COPYRIGHT___
+//
 
-protocol ___VARIABLE_sceneName___ViewModelOutput {
-}
+import Foundation
 
-class ___VARIABLE_sceneName___ViewModel: ___VARIABLE_sceneName___ViewModelInput, ___VARIABLE_sceneName___ViewModelOutput {
+class ___VARIABLE_sceneName___ViewModel: BaseViewModel { 
+    var navigationService: NavigationService!
+    var networking: AlamofireNetworking!
     
-    // MARK: - Inputs
-    
-    // MARK: - Outputs
-    
-    init() {
-    }
+    required init() {}
 }
