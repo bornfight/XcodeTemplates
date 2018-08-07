@@ -10,5 +10,9 @@
 import UIKit
 
 class ___VARIABLE_sceneName___Presenter: BasePresenter {
-    
+    weak var viewController: ___VARIABLE_sceneName___ViewController! {
+        return baseViewController as! ___VARIABLE_sceneName___ViewController
+    }
+
+    required init() {}
 }
