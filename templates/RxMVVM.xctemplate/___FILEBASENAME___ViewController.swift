@@ -1,23 +1,24 @@
+//
+//  ___FILENAME___
+//  ___PROJECTNAME___
+//
+//  Created by ___FULLUSERNAME___ on ___DATE___.
+//  ___COPYRIGHT___
+//
+
 import UIKit
 
-class ___VARIABLE_sceneName___ViewController: IBViewController<___VARIABLE_sceneName___View> {
-    typealias ViewModelType = ViewModel<___VARIABLE_sceneName___ViewModelInput, ___VARIABLE_sceneName___ViewModelOutput>
+class ___VARIABLE_sceneName___ViewController: BaseViewController {
+    var viewModel: ___VARIABLE_sceneName___ViewModel! {
+        return baseViewModel as! ___VARIABLE_sceneName___ViewModel
+    }
+
+    var presenter: ___VARIABLE_sceneName___Presenter! {
+        return basePresenter as! ___VARIABLE_sceneName___Presenter
+    }
     
-    // MARK: - Properties
-    var viewModel: ViewModelType!
-    
-    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bindInput()
-        bindOutput()
     }
-    
-    private func bindInput() {
-    }
-    
-    private func bindOutput() {
-    }
-    
 }

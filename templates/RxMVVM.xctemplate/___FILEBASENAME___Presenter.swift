@@ -6,7 +6,6 @@
 //  ___COPYRIGHT___
 //
 
-
 import UIKit
 
 class ___VARIABLE_sceneName___Presenter: BasePresenter {
