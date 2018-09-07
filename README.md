@@ -1,6 +1,6 @@
 # Overview
 
-This Xcode template creates an MVVM scene containing a `ViewController`, `View` and `ViewModel`.
+This Xcode template creates a Coconut scene containing a `ViewController`, `View` and `ViewModel`.
 
 ## Installation
 
