@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -d ~/Library/Developer/Xcode/Templates ]; then
-    echo "Templates directory doesn't exist. Creating one for you..." 
+    echo "Templates directory doesn't exist. Creating one" 
     mkdir ~/Library/Developer/Xcode/Templates
 fi
 
