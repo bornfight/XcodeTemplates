@@ -14,4 +14,4 @@ for template in $(ls templates); do
     cp -r templates/$template ~/Library/Developer/Xcode/Templates/$template
 done
 
-echo "Install complete. Please restart XCode (if applicable)."
+echo "🔥 Install complete. Please restart Xcode (if applicable). 🔥"
