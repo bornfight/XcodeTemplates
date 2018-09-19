@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>DefaultCompletionName</key>
-	<string>BFFoundation</string>
+	<string>BaseCoconut</string>
 	<key>Description</key>
 	<string>This generates base classes.</string>
 	<key>Kind</key>
