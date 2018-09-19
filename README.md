@@ -1,6 +1,10 @@
 # Overview
 
-This project contains 2 Xcode templates. The first Xcode template creates a Coconut scene containing a `ViewController`, `Presenter` and `ViewModel`. The second template creates a VIPER scene containing all of the fun VIPERy stuff.
+This project contains several Xcode templates. 
+
+* The Coconut template creates a Coconut scene containing a `ViewController`, `Presenter` and `ViewModel`. 
+* The VIPER template creates a scene containing all of the fun VIPERy stuff.
+* The BaseCoconut template creates base classes for Coconut architecture.
 
 ## Installation
 
