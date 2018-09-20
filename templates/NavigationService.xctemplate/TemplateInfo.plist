@@ -55,7 +55,7 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>YES</string>
+			<true/>
 			<key>Description</key>
 			<string>Determines if the networking is included.</string>
 			<key>Identifier</key>
