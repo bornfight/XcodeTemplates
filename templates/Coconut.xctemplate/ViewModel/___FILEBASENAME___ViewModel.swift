@@ -10,7 +10,6 @@ import Foundation
 
 class ___VARIABLE_sceneName___ViewModel: BaseViewModel { 
     var navigationService: NavigationService!
-    var networking: AlamofireNetworking!
     
     required init() {}
 }

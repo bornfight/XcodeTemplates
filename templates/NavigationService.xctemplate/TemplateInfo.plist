@@ -3,20 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>DefaultCompletionName</key>
-	<string>BaseCoconut</string>
+	<string>NavigationService</string>
 	<key>Description</key>
-	<string>This generates base classes.</string>
+	<string>This generates Navigation Service.</string>
 	<key>Kind</key>
 	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
 	<key>Options</key>
 	<array>
 		<dict>
 			<key>Description</key>
-			<string>The base prefix</string>
+			<string>The name of the class</string>
 			<key>Identifier</key>
 			<string>sceneName</string>
 			<key>Name</key>
-			<string>Base prefix:</string>
+			<string>Class name:</string>
 			<key>NotPersisted</key>
 			<true/>
 			<key>Required</key>
@@ -24,7 +24,7 @@
 			<key>Type</key>
 			<string>text</string>
 			<key>Default</key>
-			<string>Base</string>
+			<string>NavigationService</string>
 		</dict>
 		<dict>
 			<key>Default</key>
@@ -75,6 +75,6 @@
 	<key>SortOrder</key>
 	<string>9</string>
 	<key>Summary</key>
-	<string>This generates base classes.</string>
+	<string>This generates NavigationService.</string>
 </dict>
 </plist>
