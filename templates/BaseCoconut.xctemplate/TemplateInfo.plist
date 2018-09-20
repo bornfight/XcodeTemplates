@@ -59,7 +59,7 @@
 		<string>com.apple.platform.iphoneos</string>
 	</array>
 	<key>SortOrder</key>
-	<string>10</string>
+	<string>9</string>
 	<key>Summary</key>
 	<string>This generates base classes.</string>
 </dict>
