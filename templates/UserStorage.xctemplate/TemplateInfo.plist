@@ -3,20 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>DefaultCompletionName</key>
-	<string>BaseCoconut</string>
+	<string>UserStorage</string>
 	<key>Description</key>
-	<string>This generates base classes.</string>
+	<string>This generates User Storage.</string>
 	<key>Kind</key>
 	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
 	<key>Options</key>
 	<array>
 		<dict>
 			<key>Description</key>
-			<string>The base prefix</string>
+			<string>The name of the class</string>
 			<key>Identifier</key>
 			<string>sceneName</string>
 			<key>Name</key>
-			<string>Base prefix:</string>
+			<string>Class name:</string>
 			<key>NotPersisted</key>
 			<true/>
 			<key>Required</key>
@@ -24,7 +24,7 @@
 			<key>Type</key>
 			<string>text</string>
 			<key>Default</key>
-			<string>Base</string>
+			<string>UserStorage</string>
 		</dict>
 		<dict>
 			<key>Default</key>
@@ -34,25 +34,6 @@
 			<key>Type</key>
 			<string>static</string>
 		</dict>
-		<dict>
-			<key>Default</key>
-			<string>ModelController</string>
-			<key>Description</key>
-			<string>The type of the view model</string>
-			<key>Identifier</key>
-			<string>viewModelType</string>
-			<key>Name</key>
-			<string>Third Class Type:</string>
-			<key>Required</key>
-			<true/>
-			<key>Type</key>
-			<string>popup</string>
-			<key>Values</key>
-			<array>
-				<string>ModelController</string>
-				<string>ViewModel</string>
-			</array>
-		</dict>
 	</array>
 	<key>Platforms</key>
 	<array>
@@ -61,6 +42,6 @@
 	<key>SortOrder</key>
 	<string>9</string>
 	<key>Summary</key>
-	<string>This generates base classes.</string>
+	<string>This generates User Storage.</string>
 </dict>
 </plist>
