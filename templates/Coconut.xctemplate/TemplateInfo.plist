@@ -34,45 +34,22 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___Presenter</string>
+			<string>ModelController</string>
 			<key>Description</key>
-			<string>The presenter name</string>
+			<string>The type of the view model</string>
 			<key>Identifier</key>
-			<string>presenterName</string>
+			<string>viewModelType</string>
 			<key>Name</key>
-			<string>Presenter Name:</string>
+			<string>Third Class Type:</string>
 			<key>Required</key>
 			<true/>
 			<key>Type</key>
-			<string>static</string>
-		</dict>
-		<dict>
-			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___ViewModel</string>
-			<key>Description</key>
-			<string>The view model name</string>
-			<key>Identifier</key>
-			<string>viewModelName</string>
-			<key>Name</key>
-			<string>ViewModel Name:</string>
-			<key>Required</key>
-			<true/>
-			<key>Type</key>
-			<string>static</string>
-		</dict>
-		<dict>
-			<key>Default</key>
-			<string>___VARIABLE_sceneName:identifier___ViewController</string>
-			<key>Description</key>
-			<string>The view controller name</string>
-			<key>Identifier</key>
-			<string>viewControllerName</string>
-			<key>Name</key>
-			<string>View Controller Name:</string>
-			<key>Required</key>
-			<true/>
-			<key>Type</key>
-			<string>static</string>
+			<string>popup</string>
+			<key>Values</key>
+			<array>
+				<string>ModelController</string>
+				<string>ViewModel</string>
+			</array>
 		</dict>
 	</array>
 	<key>Platforms</key>
