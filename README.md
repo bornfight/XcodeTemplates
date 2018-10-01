@@ -8,6 +8,7 @@ This project contains several Xcode templates.
 * The UserStorage template creates a class for storing data in UserDefaults.
 * The NavigationService template creates a class that handles transitions between screens and general app navigation.
 * The RealmObject template creates a class for Realm object.
+* The RealmManager template creates a class that handles reading/writing to Realm database.
 
 ## Installation
 
