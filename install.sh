@@ -11,7 +11,7 @@ for template in $(ls templates); do
         echo -e "Previous version of\033[1;31m $template_name\033[0m template found. Updating..."
         rm -rf ~/Library/Developer/Xcode/Templates/$template
     else 
-    	echo -e "New\033[1;31m $template_name\033[0m template found. Installing..."
+    	echo -e "New\033[1;32m $template_name\033[0m template found. Installing..."
     fi
     cp -r templates/$template ~/Library/Developer/Xcode/Templates/$template
 done
