@@ -34,6 +34,25 @@
 			<key>Type</key>
 			<string>static</string>
 		</dict>
+		<dict>
+			<key>Default</key>
+			<string>Codable</string>
+			<key>Description</key>
+			<string>Determines if the networking is included.</string>
+			<key>Identifier</key>
+			<string>rmObjectDecodingType</string>
+			<key>Name</key>
+			<string>Decoding:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>popup</string>
+			<key>Values</key>
+			<array>
+				<string>Codable</string>
+				<string>None</string>
+			</array>
+		</dict>
 	</array>
 	<key>Platforms</key>
 	<array>
