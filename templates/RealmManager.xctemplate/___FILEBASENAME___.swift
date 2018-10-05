@@ -9,6 +9,42 @@
 import Foundation
 import RealmSwift
 
+protocol Mockable {
+    
+    associatedtype T = Self
+    
+    static func mock() -> T
+    
+}
+
+extension Object: Mockable {
+    
+    static func mock() -> T {
+        let group = self.init()
+        group.objectSchema.properties.forEach { (prop) in
+            switch prop.type {
+            case .bool:
+                group.setValue(false, forKey: prop.name)
+            case .int:
+                group.setValue(1, forKey: prop.name)
+            case .double:
+                group.setValue(1.5, forKey: prop.name)
+            case .float:
+                group.setValue(2.5, forKey: prop.name)
+            case .data:
+                group.setValue(Data(repeating: 4, count: 10), forKey: prop.name)
+            case .date:
+                group.setValue(Date(), forKey: prop.name)
+            case .string:
+                group.setValue("Mocked String", forKey: prop.name)
+            default:
+                break
+            }
+        }
+        return group
+    }
+}
+
 class ___VARIABLE_sceneName___ {
     
     let realm: Realm
