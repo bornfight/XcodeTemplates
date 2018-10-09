@@ -26,7 +26,7 @@ extension Object: Mockable {
             case .bool:
                 group.setValue(false, forKey: prop.name)
             case .int:
-                group.setValue(1, forKey: prop.name)
+                group.setValue(Int.random(in: Int.min..<Int.max), forKey: prop.name)
             case .double:
                 group.setValue(1.5, forKey: prop.name)
             case .float:
