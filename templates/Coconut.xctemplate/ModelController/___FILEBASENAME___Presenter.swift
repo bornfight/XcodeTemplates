@@ -12,7 +12,7 @@ class ___VARIABLE_sceneName___Presenter: BasePresenter {
 	var baseViewController: BaseViewController!
 	
     weak var viewController: ___VARIABLE_sceneName___ViewController! {
-        return baseViewController as! ___VARIABLE_sceneName___ViewController
+        return (baseViewController as! ___VARIABLE_sceneName___ViewController)
     }
 
     required init() {}

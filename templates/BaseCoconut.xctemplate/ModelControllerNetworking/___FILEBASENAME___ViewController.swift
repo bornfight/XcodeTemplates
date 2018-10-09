@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 
 class ___VARIABLE_sceneName___ViewController: UIViewController {
-    var baseViewModel: ___VARIABLE_sceneName___ViewModel!
+    var baseModelController: ___VARIABLE_sceneName___ModelController!
     var basePresenter: ___VARIABLE_sceneName___Presenter!
 }
