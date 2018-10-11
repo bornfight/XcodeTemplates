@@ -11,15 +11,13 @@ import RealmSwift
 
 protocol Mockable {
     
-    associatedtype T = Self
-    
-    static func mock() -> T
+    static func mock() -> Self
     
 }
 
 extension Object: Mockable {
     
-    static func mock() -> T {
+    static func mock() -> Self {
         let group = self.init()
         group.objectSchema.properties.forEach { (prop) in
             switch prop.type {
