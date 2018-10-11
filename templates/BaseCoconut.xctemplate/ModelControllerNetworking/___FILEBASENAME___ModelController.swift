@@ -11,6 +11,7 @@ import Foundation
 protocol ___VARIABLE_sceneName___ModelController {
     var navigationService: NavigationService! { get set }
     var networking: AlamofireNetworking! { get set }
+    var parser: Parser! { get set }
     
     init()
     
