@@ -13,11 +13,6 @@ fileprivate let successfulStatusCodes = (200 ... 299)
 fileprivate let defaultParsingError = RequestError(message: "Parsing Error")
 
 protocol NetworkRequestHandler {
-    
-    var successfulStatusCodes: CountableClosedRange<Int> { get }
-    
-    var defaultNetworkError: RequestError { get }
-    
     func extractedError(data: Data) -> RequestError
     
     func parseJSONArray<T: Decodable>(data: Data) -> Result<[T]>
@@ -94,7 +89,7 @@ extension Parsable {
     }
 }
 
-class ParseHandler {
+class ParseHandler: NetworkRequestHandler {
     
     private let decoder = JSONDecoder()
     
