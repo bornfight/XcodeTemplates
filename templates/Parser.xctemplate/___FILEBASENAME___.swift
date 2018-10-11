@@ -8,6 +8,10 @@
 
 import Foundation
 
+fileprivate let parseHandler = ParseHandler()
+fileprivate let successfulStatusCodes = (200 ... 299)
+fileprivate let defaultParsingError = RequestError(message: "Parsing Error")
+
 protocol NetworkRequestHandler {
     
     var successfulStatusCodes: CountableClosedRange<Int> { get }
@@ -25,28 +29,74 @@ protocol NetworkRequestHandler {
     func parseJSONAsTopLevelDictionary<T: Decodable>(data: Data, response: HTTPURLResponse) -> Result<T>
 }
 
-protocol Parsable: Decodable {
-    static func parse(response: HTTPURLResponse, data: Data) -> Result<Self>
+protocol ResponseParsable {
+    func parse<T: Parsable>(_ object: T.Type) -> ((HTTPURLResponse, Data) -> Result<T>)
+    
+    func parse<T: Parsable>(_ object: T.Type) -> ((DataResponse<Data>) -> Result<T>)
+    
+    func checkStatusCodeOK() -> ((HTTPURLResponse, Data) -> Result<Void>)
+    
+    func checkStatusCodeOK() -> ((DataResponse<Data>) -> Result<Void>)
+}
+
+class ___VARIABLE_sceneName___: ResponseParsable {
+    
+    func parse<T: Parsable>(_ object: T.Type) -> ((HTTPURLResponse, Data) -> Result<T>) {
+        return T.parse
+    }
+    
+    func parse<T: Parsable>(_ object: T.Type) -> ((DataResponse<Data>) -> Result<T>) {
+        return parseDataResponse
+    }
+    
+    func checkStatusCodeOK() -> ((HTTPURLResponse, Data) -> Result<Void>) {
+        return checkStatusCode
+    }
+    
+    func checkStatusCodeOK() -> ((DataResponse<Data>) -> Result<Void>) {
+        return checkStatusCode
+    }
+    
+    private func parseDataResponse<T: Parsable>(response: DataResponse<Data>) -> Result<T> {
+        guard let httpResponse = response.response, let data = response.data else {
+            return .failure(defaultParsingError)
+        }
+        
+        return T.parse(response: httpResponse, data: data)
+    }
+    
+    private func checkStatusCode(response: HTTPURLResponse, data: Data) -> Result<Void> {
+        if successfulStatusCodes.contains(response.statusCode) {
+            return .success(())
+        } else {
+            return .failure(defaultParsingError)
+        }
+    }
+    
+    private func checkStatusCode(response: DataResponse<Data>) -> Result<Void> {
+        if let statusCode = response.response?.statusCode, successfulStatusCodes.contains(statusCode) {
+            return .success(())
+        } else {
+            return .failure(defaultParsingError)
+        }
+    }
 }
 
 extension Array: Parsable where Element: Parsable {
     static func parse(response: HTTPURLResponse, data: Data) -> Result<[Element]> {
-        return parser.parseJSONAsTopLevelArray(data: data, response: response)
+        return parseHandler.parseJSONAsTopLevelArray(data: data, response: response)
     }
 }
 
 extension Parsable {
     static func parse(response: HTTPURLResponse, data: Data) -> Result<Self> {
-        return parser.parseJSONAsTopLevelDictionary(data: data, response: response)
+        return parseHandler.parseJSONAsTopLevelDictionary(data: data, response: response)
     }
 }
 
-class ___VARIABLE_sceneName___ {
+class ParseHandler {
     
     private let decoder = JSONDecoder()
-    
-    let successfulStatusCodes = (200 ... 299)
-    let defaultNetworkError = RequestError(message: "Network Error")
     
     func extractedError(data: Data) -> RequestError {
         logJSON(data: data)
@@ -58,7 +108,7 @@ class ___VARIABLE_sceneName___ {
             return error
         }
         
-        return RequestError(message: "Network Error")
+        return defaultParsingError
     }
     
     func isResponseSuccessful(data: Data, response: HTTPURLResponse) -> Result<Void> {
@@ -89,7 +139,7 @@ class ___VARIABLE_sceneName___ {
         if let mappedData = try? decoder.decode(T.self, from: data) {
             return .success(mappedData)
         } else {
-            return .failure(defaultNetworkError)
+            return .failure(defaultParsingError)
         }
     }
     
