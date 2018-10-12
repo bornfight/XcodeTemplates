@@ -8,45 +8,53 @@
 
 import Foundation
 import UIKit
-import EssentialPod
+import CoconutBits
 
-class ___VARIABLE_sceneName___ {
-    
-    let networking = AlamofireNetworking()
-    let rootStoryboard = UIStoryboard(name: "Main", bundle: nil)
+protocol CoconutFactory {
+    func controllerFactory<T: BaseViewController, V: BaseViewModel, P: BasePresenter>(ViewModelType: V.Type, PresenterType: P.Type, navigationService: NavigationService) -> T
+}
 
-//    EXAMPLE INIT
-
-//    func initWithWelcomeScreen(window: UIWindow, token: String? = nil) {
-//        let viewController: WelcomeViewController = controllerFactory(ViewModelType: WelcomeViewModel.self, PresenterType: WelcomePresenter.self, storyboard: rootStoryboard)
-//        viewController.viewModel.token = token
-//
-//        let navController = RootNavigationController(rootViewController: viewController)
-//
-//        window.rootViewController = navController
-//        rootNavigationController = navController
-//    }
+extension UIStoryboard: CoconutFactory {
     
-//    EXAMPLE PUSH
-    
-//    func pushToRegistrationScreen(navController: UINavigationController?) {
-//        let viewController: RegistrationViewController = controllerFactory(ViewModelType: RegistrationViewModel.self, PresenterType: RegistrationPresenter.self, storyboard: rootStoryboard)
-//
-//        navController?.pushViewController(viewController, animated: true)
-//    }
-    
-    func controllerFactory<T: BaseViewController, V: BaseViewModel, P: BasePresenter>(ViewModelType: V.Type, PresenterType: P.Type, storyboard: UIStoryboard) -> T {
+    func controllerFactory<T: BaseViewController, V: BaseViewModel, P: BasePresenter>(ViewModelType: V.Type, PresenterType: P.Type, navigationService: NavigationService) -> T {
         
         var viewModel = ViewModelType.init()
-        viewModel.navigationService = self
-        viewModel.networking = networking
+        viewModel.navigationService = navigationService
+        viewModel.networking = navigationService.networking
         
         var presenter = PresenterType.init()
-        let viewController: T = storyboard.instantiateViewController()
+        let viewController: T = instantiateViewController()
         viewController.baseViewModel = viewModel
         viewController.basePresenter = presenter
         presenter.baseViewController = viewController
         
         return viewController
     }
+    
 }
+
+class ___VARIABLE_sceneName___ {
+    
+    let networking = AlamofireNetworking()
+    
+    //    EXAMPLE INIT
+    
+    //    func initWithWelcomeScreen(window: UIWindow) {
+    //        let viewController: WelcomeViewController = UIStoryboard.onboarding.controllerFactory(ViewModelType: WelcomeViewModel.self, PresenterType: WelcomePresenter.self, navigationService: self)
+    //
+    //        let navController = RootNavigationController(rootViewController: viewController)
+    //
+    //        window.rootViewController = navController
+    //        rootNavigationController = navController
+    //    }
+    
+    //    EXAMPLE PUSH
+    
+    //    func pushToRegistrationScreen(navController: UINavigationController?) {
+    //        let viewController: RegistrationViewController = UIStoryboard.onboarding.controllerFactory(ViewModelType: RegistrationViewModel.self, PresenterType: RegistrationPresenter.self, navigationService: self))
+    //
+    //        navController?.pushViewController(viewController, animated: true)
+    //    }
+}
+
+

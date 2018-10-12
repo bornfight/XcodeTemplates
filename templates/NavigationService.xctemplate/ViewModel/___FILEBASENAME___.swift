@@ -8,17 +8,36 @@
 
 import Foundation
 import UIKit
-import EssentialPod
+import CoconutBits
+
+protocol CoconutFactory {
+    func controllerFactory<T: BaseViewController, V: BaseViewModel, P: BasePresenter>(ViewModelType: V.Type, PresenterType: P.Type, navigationService: NavigationService) -> T
+}
+
+extension UIStoryboard: CoconutFactory {
+    
+    func controllerFactory<T: BaseViewController, V: BaseViewModel, P: BasePresenter>(ViewModelType: V.Type, PresenterType: P.Type, navigationService: NavigationService) -> T {
+        
+        var viewModel = ViewModelType.init()
+        viewModel.navigationService = navigationService
+        
+        var presenter = PresenterType.init()
+        let viewController: T = instantiateViewController()
+        viewController.baseViewModel = viewModel
+        viewController.basePresenter = presenter
+        presenter.baseViewController = viewController
+        
+        return viewController
+    }
+    
+}
 
 class ___VARIABLE_sceneName___ {
-    
-    let rootStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
 //    EXAMPLE INIT
 
-//    func initWithWelcomeScreen(window: UIWindow, token: String? = nil) {
-//        let viewController: WelcomeViewController = controllerFactory(ViewModelType: WelcomeViewModel.self, PresenterType: WelcomePresenter.self, storyboard: rootStoryboard)
-//        viewController.viewModel.token = token
+//    func initWithWelcomeScreen(window: UIWindow) {
+//        let viewController: WelcomeViewController = UIStoryboard.onboarding.controllerFactory(ViewModelType: WelcomeViewModel.self, PresenterType: WelcomePresenter.self, navigationService: self)
 //
 //        let navController = RootNavigationController(rootViewController: viewController)
 //
@@ -29,22 +48,8 @@ class ___VARIABLE_sceneName___ {
 //    EXAMPLE PUSH
     
 //    func pushToRegistrationScreen(navController: UINavigationController?) {
-//        let viewController: RegistrationViewController = controllerFactory(ViewModelType: RegistrationViewModel.self, PresenterType: RegistrationPresenter.self, storyboard: rootStoryboard)
+//        let viewController: RegistrationViewController = UIStoryboard.onboarding.controllerFactory(ViewModelType: RegistrationViewModel.self, PresenterType: RegistrationPresenter.self, navigationService: self))
 //
 //        navController?.pushViewController(viewController, animated: true)
 //    }
-    
-    func controllerFactory<T: BaseViewController, V: BaseViewModel, P: BasePresenter>(ViewModelType: V.Type, PresenterType: P.Type, storyboard: UIStoryboard) -> T {
-        
-        var viewModel = ViewModelType.init()
-        viewModel.navigationService = self
-        
-        var presenter = PresenterType.init()
-        let viewController: T = storyboard.instantiateViewController()
-        viewController.baseViewModel = viewModel
-        viewController.basePresenter = presenter
-        presenter.baseViewController = viewController
-        
-        return viewController
-    }
 }
