@@ -40,7 +40,7 @@
 		<string>com.apple.platform.iphoneos</string>
 	</array>
 	<key>SortOrder</key>
-	<string>9</string>
+	<string>7</string>
 	<key>Summary</key>
 	<string>This generates Realm Manager.</string>
 </dict>

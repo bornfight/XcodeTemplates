@@ -6,8 +6,8 @@ if [ ! -d ~/Library/Developer/Xcode/Templates ]; then
 fi
 
 for template in $(ls templates); do
+    template_name=$(echo $template| rev | cut -c 12- | rev)
     if [ -d ~/Library/Developer/Xcode/Templates/$template ]; then
-        template_name=$(echo $template| rev | cut -c 12- | rev)
         echo -e "Previous version of\033[1;31m $template_name\033[0m template found. Updating..."
         rm -rf ~/Library/Developer/Xcode/Templates/$template
     else 
