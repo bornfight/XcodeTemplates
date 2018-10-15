@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>DefaultCompletionName</key>
-	<string>UserStorage</string>
+	<string>UserStorageTemplate</string>
 	<key>Description</key>
 	<string>This generates User Storage.</string>
 	<key>Kind</key>
