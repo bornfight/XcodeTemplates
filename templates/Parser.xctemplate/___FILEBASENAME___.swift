@@ -34,6 +34,10 @@ protocol ResponseParsable {
     func checkStatusCodeOK() -> ((DataResponse<Data>) -> Result<Void>)
 }
 
+protocol Parsable: Decodable {
+    static func parse(response: HTTPURLResponse, data: Data) -> Result<Self>
+}
+
 class ___VARIABLE_sceneName___: ResponseParsable {
     
     func parse<T: Parsable>(_ object: T.Type) -> ((HTTPURLResponse, Data) -> Result<T>) {
