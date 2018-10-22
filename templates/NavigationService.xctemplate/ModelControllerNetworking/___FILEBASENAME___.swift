@@ -6,13 +6,17 @@
 //  ___COPYRIGHT___
 //
 
+import Foundation
+import UIKit
+import CoconutBits
+
 protocol CoconutFactory {
-    func controllerFactory<T: BaseViewController, V: BaseModelController, P: BasePresenter>(ModelControllerType: V.Type, PresenterType: P.Type, navigationService: NavigationService) -> T
+    func instantiate<T: BaseViewController, V: BaseModelController, P: BasePresenter>(ModelControllerType: V.Type, PresenterType: P.Type, navigationService: NavigationService) -> T
 }
 
 extension UIStoryboard: CoconutFactory {
     
-    func controllerFactory<T: BaseViewController, V: BaseModelController, P: BasePresenter>(ModelControllerType: V.Type, PresenterType: P.Type, navigationService: NavigationService) -> T {
+    func instantiate<T: BaseViewController, V: BaseModelController, P: BasePresenter>(ModelControllerType: V.Type, PresenterType: P.Type, navigationService: NavigationService) -> T {
         
         var modelController = ModelControllerType.init()
         modelController.navigationService = navigationService
@@ -36,7 +40,7 @@ class ___VARIABLE_sceneName___ {
     //    EXAMPLE INIT
     
     //    func initWithWelcomeScreen(window: UIWindow) {
-    //        let viewController: WelcomeViewController = UIStoryboard.onboarding.controllerFactory(ModelControllerType: WelcomeModelController.self, PresenterType: WelcomePresenter.self, navigationService: self)
+    //        let viewController: WelcomeViewController = UIStoryboard.onboarding.instantiate(ModelControllerType: WelcomeModelController.self, PresenterType: WelcomePresenter.self, navigationService: self)
     //
     //        let navController = RootNavigationController(rootViewController: viewController)
     //
@@ -47,7 +51,7 @@ class ___VARIABLE_sceneName___ {
     //    EXAMPLE PUSH
     
     //    func pushToRegistrationScreen(navController: UINavigationController?) {
-    //        let viewController: RegistrationViewController = UIStoryboard.onboarding.controllerFactory(ModelControllerType: RegistrationModelController.self, PresenterType: RegistrationPresenter.self, navigationService: self))
+    //        let viewController: RegistrationViewController = UIStoryboard.onboarding.instantiate(ModelControllerType: RegistrationModelController.self, PresenterType: RegistrationPresenter.self, navigationService: self))
     //
     //        navController?.pushViewController(viewController, animated: true)
     //    }

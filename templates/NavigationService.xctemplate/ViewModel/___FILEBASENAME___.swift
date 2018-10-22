@@ -11,12 +11,12 @@ import UIKit
 import CoconutBits
 
 protocol CoconutFactory {
-    func controllerFactory<T: BaseViewController, V: BaseViewModel, P: BasePresenter>(ViewModelType: V.Type, PresenterType: P.Type, navigationService: NavigationService) -> T
+    func instantiate<T: BaseViewController, V: BaseViewModel, P: BasePresenter>(ViewModelType: V.Type, PresenterType: P.Type, navigationService: NavigationService) -> T
 }
 
 extension UIStoryboard: CoconutFactory {
     
-    func controllerFactory<T: BaseViewController, V: BaseViewModel, P: BasePresenter>(ViewModelType: V.Type, PresenterType: P.Type, navigationService: NavigationService) -> T {
+    func instantiate<T: BaseViewController, V: BaseViewModel, P: BasePresenter>(ViewModelType: V.Type, PresenterType: P.Type, navigationService: NavigationService) -> T {
         
         var viewModel = ViewModelType.init()
         viewModel.navigationService = navigationService
@@ -37,7 +37,7 @@ class ___VARIABLE_sceneName___ {
 //    EXAMPLE INIT
 
 //    func initWithWelcomeScreen(window: UIWindow) {
-//        let viewController: WelcomeViewController = UIStoryboard.onboarding.controllerFactory(ViewModelType: WelcomeViewModel.self, PresenterType: WelcomePresenter.self, navigationService: self)
+//        let viewController: WelcomeViewController = UIStoryboard.onboarding.instantiate(ViewModelType: WelcomeViewModel.self, PresenterType: WelcomePresenter.self, navigationService: self)
 //
 //        let navController = RootNavigationController(rootViewController: viewController)
 //
@@ -48,7 +48,7 @@ class ___VARIABLE_sceneName___ {
 //    EXAMPLE PUSH
     
 //    func pushToRegistrationScreen(navController: UINavigationController?) {
-//        let viewController: RegistrationViewController = UIStoryboard.onboarding.controllerFactory(ViewModelType: RegistrationViewModel.self, PresenterType: RegistrationPresenter.self, navigationService: self))
+//        let viewController: RegistrationViewController = UIStoryboard.onboarding.instantiate(ViewModelType: RegistrationViewModel.self, PresenterType: RegistrationPresenter.self, navigationService: self))
 //
 //        navController?.pushViewController(viewController, animated: true)
 //    }
