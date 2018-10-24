@@ -9,7 +9,6 @@ This project contains several Xcode templates.
 * The NavigationService template creates a class that handles transitions between screens and general app navigation.
 * The RealmObject template creates a class for Realm object.
 * The RealmManager template creates a class that handles reading/writing to Realm database.
-* The MT VIPER template creates VIPER template for Mediatoolkit app.
 
 ## Installation
 
