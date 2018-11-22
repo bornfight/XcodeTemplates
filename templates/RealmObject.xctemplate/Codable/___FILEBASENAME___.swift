@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class ___VARIABLE_sceneName___: Object, Parsable {
+final class ___VARIABLE_sceneName___: Object, Parsable {
 	
 	@objc dynamic var id: Int = 0
 
