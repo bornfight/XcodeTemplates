@@ -12,6 +12,10 @@ import RealmSwift
 final class ___VARIABLE_sceneName___: Object, Parsable {
 	
 	@objc dynamic var id: Int = 0
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 
 	enum CodingKeys: String, CodingKey {
 		case id
@@ -28,4 +32,13 @@ final class ___VARIABLE_sceneName___: Object, Parsable {
 		self.id = id
 	}
 
+}
+
+class ___VARIABLE_sceneName___Repository: RealmRepository {
+    typealias Model = ___VARIABLE_sceneName___
+    typealias Id = Int
+    
+    func idPredicate(id: Id) -> NSPredicate {
+        return NSPredicate(format: "id == %d", id)
+    }
 }
