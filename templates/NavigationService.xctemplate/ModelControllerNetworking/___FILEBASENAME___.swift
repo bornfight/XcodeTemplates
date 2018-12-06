@@ -35,8 +35,6 @@ extension UIStoryboard: CoconutFactory {
 
 class ___VARIABLE_sceneName___ {
     
-    let networking = AlamofireNetworking()
-    
     //    EXAMPLE INIT
     
     //    func initWithWelcomeScreen(window: UIWindow) {
@@ -48,11 +46,13 @@ class ___VARIABLE_sceneName___ {
     //        rootNavigationController = navController
     //    }
     
-    //    EXAMPLE PUSH
+    //    EXAMPLE SCREEN
     
-    //    func pushToRegistrationScreen(navController: UINavigationController?) {
-    //        let viewController: RegistrationViewController = UIStoryboard.onboarding.instantiate(ModelControllerType: RegistrationModelController.self, PresenterType: RegistrationPresenter.self, navigationService: self))
+    //    func emailSentScreen(email: String?) -> EmailSentViewController {
+    //      let viewController: EmailSentViewController =           UIStoryboard.forgotPass.instantiate(ModelControllerType: EmailSentModelController.self, PresenterType: EmailSentPresenter.self, navigationService: self)
+    //      viewController.modelController.emailRelay.accept(email)
     //
-    //        navController?.pushViewController(viewController, animated: true)
-    //    }
+    //      return viewController
+    //  }
+    
 }
