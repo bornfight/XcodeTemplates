@@ -34,11 +34,7 @@ final class ___VARIABLE_sceneName___: Object, Parsable {
 
 }
 
-class ___VARIABLE_sceneName___Repository: RealmRepository {
+class ___VARIABLE_sceneName___Repository: RepositoryType {
     typealias Model = ___VARIABLE_sceneName___
     typealias Id = Int
-    
-    func idPredicate(id: Id) -> NSPredicate {
-        return NSPredicate(format: "id == %d", id)
-    }
 }
