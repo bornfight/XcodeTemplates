@@ -36,5 +36,5 @@ final class ___VARIABLE_sceneName___: Object, Parsable {
 
 class ___VARIABLE_sceneName___Repository: RepositoryType {
     typealias Model = ___VARIABLE_sceneName___
-    typealias Id = Int
+    typealias Identifier = Int
 }
