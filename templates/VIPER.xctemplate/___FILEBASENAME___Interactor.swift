@@ -13,7 +13,7 @@ protocol ___VARIABLE_sceneName___InteractorOutput {
 
 class ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___ViewControllerOutput { 
 
-    var output: ___VARIABLE_sceneName___Output!
-    var worker = ___VARIABLE_sceneName___Worker(store: ___VARIABLE_sceneName___Store())
+    var output: ___VARIABLE_sceneName___InteractorOutput!
+//    var worker = ___VARIABLE_sceneName___Worker(store: ___VARIABLE_sceneName___Store())
 
 }

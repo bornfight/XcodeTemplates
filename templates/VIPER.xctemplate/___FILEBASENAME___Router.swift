@@ -17,6 +17,8 @@ class ___VARIABLE_sceneName___Router: ___VARIABLE_sceneName___RouterInput {
 
     enum Storyboards: String {
 
+        case someStoryboard
+        
         var instance: UIStoryboard {
             return UIStoryboard(name: rawValue, bundle: nil)
         }
