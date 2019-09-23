@@ -20,8 +20,6 @@ class ___VARIABLE_sceneName___Navigator: BaseNavigator {
     }
     
     func navigate(to destination: Route) {
-        switch destination {
-            
-        }
+        
     }
 }
