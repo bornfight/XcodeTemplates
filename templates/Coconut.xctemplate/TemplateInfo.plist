@@ -34,7 +34,7 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>ModelController</string>
+			<string>ModelControllerNavigator</string>
 			<key>Description</key>
 			<string>The type of the view model</string>
 			<key>Identifier</key>
@@ -47,9 +47,12 @@
 			<string>popup</string>
 			<key>Values</key>
 			<array>
+				<string>ModelControllerNavigator</string>
 				<string>ModelController</string>
 				<string>ViewModel</string>
 			</array>
+			<key>NotPersisted</key>
+			<string>YES</string>
 		</dict>
 		<dict>
 			<key>Default</key>
