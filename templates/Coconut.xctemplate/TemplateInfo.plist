@@ -54,20 +54,6 @@
 			<key>NotPersisted</key>
 			<string>YES</string>
 		</dict>
-		<dict>
-			<key>Default</key>
-			<true/>
-			<key>Description</key>
-			<string>Determines if the networking is included.</string>
-			<key>Identifier</key>
-			<string>Networking</string>
-			<key>Name</key>
-			<string>Include Networking</string>
-			<key>Required</key>
-			<true/>
-			<key>Type</key>
-			<string>checkbox</string>
-		</dict>
 	</array>
 	<key>Platforms</key>
 	<array>
