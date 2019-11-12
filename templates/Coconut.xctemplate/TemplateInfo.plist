@@ -34,7 +34,7 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>ModelController</string>
+			<string>ModelControllerNavigator</string>
 			<key>Description</key>
 			<string>The type of the view model</string>
 			<key>Identifier</key>
@@ -47,23 +47,12 @@
 			<string>popup</string>
 			<key>Values</key>
 			<array>
+				<string>ModelControllerNavigator</string>
 				<string>ModelController</string>
 				<string>ViewModel</string>
 			</array>
-		</dict>
-		<dict>
-			<key>Default</key>
-			<true/>
-			<key>Description</key>
-			<string>Determines if the networking is included.</string>
-			<key>Identifier</key>
-			<string>Networking</string>
-			<key>Name</key>
-			<string>Include Networking</string>
-			<key>Required</key>
-			<true/>
-			<key>Type</key>
-			<string>checkbox</string>
+			<key>NotPersisted</key>
+			<string>YES</string>
 		</dict>
 	</array>
 	<key>Platforms</key>
